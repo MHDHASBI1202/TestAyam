@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Hasil Prediksi</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Ayam Djuragan</h2>
+        <nav>
+            <a href="dashboard-manager.html">Dashboard</a>
+            <a href="stok-list.html">Lihat Stok & Notifikasi</a>
+            <a href="laporan-prediksi.html" class="active">Laporan Hasil Prediksi</a>
+            <a href="daftar-belanja-pasar.html">Daftar Belanja Pasar</a>
+            <a href="pilih-pemasok.html">Pesan ke Pemasok</a>
+            <a href="input-barang-masuk.html">Input Barang Masuk</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Rincian Laporan Prediksi Kebutuhan</h1>
+            <button class="btn btn-primary" onclick="window.print()">Cetak Laporan</button>
+        </div>
+
+        <div class="card">
+            <h2>Ringkasan Prediksi (Periode 17 - 23 Des 2025)</h2>
+            <p style="margin-bottom: 15px;">Prediksi dihitung berdasarkan data historis 3 bulan terakhir dan tren penjualan[cite: 630].</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bahan Baku</th>
+                        <th>Rata-rata Pemakaian Harian (Kg)</th>
+                        <th>Prediksi Kebutuhan (7 Hari)</th>
+                        <th>Stok Aktual Saat Ini</th>
+                        <th>Saran Jumlah Pembelian</th>
+                        <th>Aksi Lanjut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ayam Potong (Beku)</td>
+                        <td>10.0</td>
+                        <td>70 Kg</td>
+                        <td>5 Kg</td>
+                        <td style="color: red; font-weight: bold;">65 Kg</td>
+                        <td><button class="btn btn-primary" onclick="window.location.href='pilih-pemasok.html'">Pesan ke Pemasok</button></td>
+                    </tr>
+                    <tr>
+                        <td>Cabai Merah Keriting</td>
+                        <td>2.0</td>
+                        <td>14 Kg</td>
+                        <td>1 Kg</td>
+                        <td style="color: red; font-weight: bold;">13 Kg</td>
+                        <td><button class="btn btn-primary" onclick="window.location.href='daftar-belanja-pasar.html'">Belanja ke Pasar</button></td>
+                    </tr>
+                    <tr>
+                        <td>Minyak Goreng</td>
+                        <td>3.5</td>
+                        <td>24.5 Liter</td>
+                        <td>30 Liter</td>
+                        <td style="color: var(--success-color);">0 (Stok Cukup)</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card" style="margin-top: 30px;">
+            <h2>Grafik Tren Pemakaian Ayam (Visualisasi BI)</h2>
+            <p>*(Placeholder untuk grafik historis yang mendukung pengambilan keputusan [cite: 108])*</p>
+            <div style="height: 250px; background-color: #f0f0f0; border: 1px solid #ddd; margin-top: 15px; display: flex; align-items: center; justify-content: center;">
+                [AREA GRAFIK BAR/LINE CHART DISINI]
+            </div>
+        </div>
+    </div>
+</body>
+</html>

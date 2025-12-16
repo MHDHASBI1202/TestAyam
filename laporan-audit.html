@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Audit Transaksi</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Ayam Djuragan</h2>
+        <nav>
+            <a href="dashboard-manager.html">Dashboard</a>
+            <a href="stok-list.html">Lihat Stok & Notifikasi</a>
+            <a href="laporan-prediksi.html">Laporan Hasil Prediksi</a>
+            <a href="daftar-belanja-pasar.html">Daftar Belanja Pasar</a>
+            <a href="pilih-pemasok.html">Pesan ke Pemasok</a>
+            <a href="input-barang-masuk.html">Input Barang Masuk</a>
+            <a href="log-notifikasi.html">Log Notifikasi</a>
+            <a href="laporan-audit.html" class="active">Laporan Audit</a>
+            <a href="data-master.html">Data Master</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Laporan Audit Transaksi Stok</h1>
+            <button class="btn btn-primary">Unduh Laporan (PDF)</button>
+        </div>
+
+        <div class="card">
+            <h2>Filter Transaksi</h2>
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <select style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    <option>Filter Jenis: Semua</option>
+                    <option>Filter Jenis: Barang Masuk</option>
+                    <option>Filter Jenis: Penggunaan Bahan</option>
+                </select>
+                <input type="date" style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <input type="date" style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Waktu</th>
+                        <th>Jenis Transaksi</th>
+                        <th>Bahan Baku</th>
+                        <th>Jumlah</th>
+                        <th>Oleh</th>
+                        <th>Keterangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>16 Des 2025, 11:30</td>
+                        <td>**Barang Masuk**</td>
+                        <td>Ayam Potong</td>
+                        <td>+65 Kg</td>
+                        <td>Manajer Dapur</td>
+                        <td>Kualitas: Baik (Dari Supplier Ayam Sempurna)</td>
+                    </tr>
+                    <tr>
+                        <td>16 Des 2025, 11:30</td>
+                        <td>**Barang Masuk**</td>
+                        <td>Cabai Merah</td>
+                        <td>+13 Kg</td>
+                        <td>Manajer Dapur</td>
+                        <td>Kualitas: Baik (Pembelian Pasar)</td>
+                    </tr>
+                    <tr>
+                        <td>16 Des 2025, 10:00</td>
+                        <td>**Penggunaan Bahan**</td>
+                        <td>Ayam Potong</td>
+                        <td>-10 Kg</td>
+                        <td>Staff Dapur</td>
+                        <td>Pemakaian Harian</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

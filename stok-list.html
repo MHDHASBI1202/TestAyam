@@ -11,27 +11,28 @@
         <h2>Ayam Djuragan</h2>
         <nav>
             <a href="dashboard-manager.html">Dashboard</a>
-            <a href="stok-list.html" class="active">Lihat Stok & Prediksi</a>
+            <a href="stok-list.html" class="active">Lihat Stok & Notifikasi</a>
+            <a href="laporan-prediksi.html">Laporan Hasil Prediksi</a>
+            <a href="daftar-belanja-pasar.html">Daftar Belanja Pasar</a>
+            <a href="pilih-pemasok.html">Pesan ke Pemasok</a>
             <a href="input-barang-masuk.html">Input Barang Masuk</a>
-            <a href="#">Daftar Belanja Pasar</a>
-            <a href="#">Kelola Pemasok</a>
             <a href="index.html">Logout</a>
         </nav>
     </div>
 
     <div class="main-content">
         <div class="header-bar">
-            <h1>Stok Bahan Baku Real-time</h1>
-            <button class="btn btn-primary">Unduh Laporan Stok</button>
+            <h1>Stok Bahan Baku Real-time (Melihat Stok)</h1>
+            <button class="btn btn-primary" onclick="window.location.href='laporan-prediksi.html'">Lihat Laporan Prediksi</button>
         </div>
 
         <div class="card">
              <div style="display: flex; gap: 10px; margin-bottom: 20px;">
                 <input type="text" placeholder="Cari Bahan Baku..." style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; flex-grow: 1;">
                 <select style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-                    <option>Filter Kategori: Semua</option>
-                    <option>Filter Kategori: Ayam</option>
-                    <option>Filter Kategori: Cabai/Bumbu</option>
+                    <option>Filter Status: Semua</option>
+                    <option>Filter Status: Kurang/Habis</option>
+                    <option>Filter Status: Cukup</option>
                 </select>
             </div>
             
@@ -43,7 +44,7 @@
                         <th>Stok Saat Ini</th>
                         <th>Batas Minimum</th>
                         <th>Status Ketersediaan</th>
-                        <th>Aksi</th>
+                        <th>Aksi Pengadaan</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,7 +54,7 @@
                         <td>5</td>
                         <td>10</td>
                         <td class="status-kurang">Kurang</td>
-                        <td><button class="btn btn-primary">Beli ke Pemasok</button></td>
+                        <td><button class="btn btn-primary" onclick="window.location.href='pilih-pemasok.html'">Pesan ke Pemasok</button></td>
                     </tr>
                     <tr>
                         <td>Cabai Merah Keriting</td>
@@ -61,7 +62,7 @@
                         <td>1</td>
                         <td>3</td>
                         <td class="status-kurang">Kurang</td>
-                        <td><button class="btn btn-primary" onclick="alert('Mengarahkan ke Daftar Belanja Pasar...')">Beli ke Pasar</button></td>
+                        <td><button class="btn btn-primary" onclick="window.location.href='daftar-belanja-pasar.html'">Belanja ke Pasar</button></td>
                     </tr>
                     <tr>
                         <td>Bawang Merah</td>
@@ -84,33 +85,9 @@
         </div>
 
         <div class="card" style="margin-top: 40px;">
-            <h2>Laporan Hasil Prediksi Kebutuhan (Minggu Depan) [cite: 353]</h2>
-            <p>Sistem memprediksi kebutuhan untuk periode 7 hari ke depan.</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Bahan Baku</th>
-                        <th>Kebutuhan Prediksi</th>
-                        <th>Stok Saat Ini</th>
-                        <th>Saran Beli</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Ayam Potong (Beku)</td>
-                        <td>70 Kg</td>
-                        <td>5 Kg</td>
-                        <td>65 Kg</td>
-                    </tr>
-                    <tr>
-                        <td>Cabai Merah Keriting</td>
-                        <td>15 Kg</td>
-                        <td>1 Kg</td>
-                        <td>14 Kg</td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="btn btn-primary" style="margin-top: 15px;">Buat Daftar Pembelian Otomatis</button>
+            <h2>Ringkasan Prediksi Kebutuhan</h2>
+            <p>Lihat detail prediksi untuk membandingkan stok dengan kebutuhan mendatang.</p>
+            <button class="btn btn-primary" style="margin-top: 15px;" onclick="window.location.href='laporan-prediksi.html'">Lihat Rincian Prediksi</button>
         </div>
     </div>
 </body>

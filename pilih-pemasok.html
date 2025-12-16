@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan ke Pemasok</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .supplier-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Ayam Djuragan</h2>
+        <nav>
+            <a href="dashboard-manager.html">Dashboard</a>
+            <a href="stok-list.html">Lihat Stok & Notifikasi</a>
+            <a href="laporan-prediksi.html">Laporan Hasil Prediksi</a>
+            <a href="daftar-belanja-pasar.html">Daftar Belanja Pasar</a>
+            <a href="pilih-pemasok.html" class="active">Pesan ke Pemasok</a>
+            <a href="input-barang-masuk.html">Input Barang Masuk</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Pilih Pemasok & Kirim Permintaan</h1>
+        </div>
+
+        <div class="card">
+            <h2>Daftar Kebutuhan Pembelian (Otomatis)</h2>
+            <p style="margin-bottom: 15px;">Daftar ini ditujukan untuk pembelian melalui Pemasok (bukan pasar).</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bahan Baku</th>
+                        <th>Jumlah Saran Beli</th>
+                        <th>Satuan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ayam Potong (Beku)</td>
+                        <td style="color: red; font-weight: bold;">65</td>
+                        <td>Kg</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card" style="margin-top: 30px;">
+            <h2>Pilih Pemasok untuk Pengadaan Ayam [cite: 166]</h2>
+            <div class="supplier-card">
+                <div>
+                    <h3>Supplier Ayam Sempurna</h3>
+                    <p>Kontak: 0812-xxxx-1234 (WA)</p>
+                    <p>Estimasi Harga/Kg: Rp 28.000</p>
+                </div>
+                <button class="btn btn-primary" onclick="kirimPermintaan('Supplier Ayam Sempurna')">Kirim Permintaan (via WA)</button>
+            </div>
+            <div class="supplier-card">
+                <div>
+                    <h3>UD Segar Abadi</h3>
+                    <p>Kontak: 0857-xxxx-5678 (WA)</p>
+                    <p>Estimasi Harga/Kg: Rp 28.500</p>
+                </div>
+                <button class="btn btn-primary" onclick="kirimPermintaan('UD Segar Abadi')">Kirim Permintaan (via WA)</button>
+            </div>
+            <p style="margin-top: 20px;">*Permintaan akan dikirim otomatis ke nomor WhatsApp pemasok[cite: 109].</p>
+        </div>
+    </div>
+    <script>
+        function kirimPermintaan(supplier) {
+            alert(`Permintaan pembelian 65 Kg Ayam telah dikirimkan ke ${supplier} melalui WhatsApp.`);
+            // Dalam implementasi nyata, akan ada logic untuk mencatat log dan mengirim pesan via API
+        }
+    </script>
+</body>
+</html>

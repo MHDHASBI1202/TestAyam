@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Notifikasi WhatsApp</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Ayam Djuragan</h2>
+        <nav>
+            <a href="dashboard-manager.html">Dashboard</a>
+            <a href="stok-list.html">Lihat Stok & Notifikasi</a>
+            <a href="laporan-prediksi.html">Laporan Hasil Prediksi</a>
+            <a href="daftar-belanja-pasar.html">Daftar Belanja Pasar</a>
+            <a href="pilih-pemasok.html">Pesan ke Pemasok</a>
+            <a href="input-barang-masuk.html">Input Barang Masuk</a>
+            <a href="log-notifikasi.html" class="active">Log Notifikasi</a>
+            <a href="laporan-audit.html">Laporan Audit</a>
+            <a href="data-master.html">Data Master</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Log Notifikasi WhatsApp Sistem</h1>
+            <button class="btn btn-primary">Refresh Data</button>
+        </div>
+
+        <div class="card">
+            <h2>Riwayat Pengiriman Pesan ke Pemasok & Manajer</h2>
+            <p>Log mencatat status pengiriman otomatis ke WhatsApp Gateway (Pemasok) dan notifikasi stok kritis (Manajer).</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Waktu</th>
+                        <th>Tujuan (No. WA)</th>
+                        <th>Tipe Pesan</th>
+                        <th>Status Pengiriman</th>
+                        <th>Keterangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>16 Des 2025, 10:05</td>
+                        <td>Supplier Ayam Sempurna</td>
+                        <td>Permintaan Pembelian Ayam (65 Kg)</td>
+                        <td class="status-cukup">BERHASIL</td>
+                        <td>Dikirim pada percobaan pertama.</td>
+                    </tr>
+                    <tr>
+                        <td>16 Des 2025, 08:30</td>
+                        <td>Manajer Dapur</td>
+                        <td>Stok Kritis: Cabai Merah</td>
+                        <td class="status-cukup">BERHASIL</td>
+                        <td>Stok mencapai 1 Kg (Batas min 3 Kg).</td>
+                    </tr>
+                     <tr>
+                        <td>15 Des 2025, 17:45</td>
+                        <td>Supplier Ayam Sempurna</td>
+                        <td>Permintaan Pembelian Ayam (60 Kg)</td>
+                        <td class="status-kurang">GAGAL</td>
+                        <td>Gagal dikirim (Koneksi API terputus). Di-retry 5 kali. *Notifikasi gagal dikirim ke Manajer.*</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

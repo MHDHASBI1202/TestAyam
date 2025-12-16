@@ -23,10 +23,11 @@
         <h2>Ayam Djuragan</h2>
         <nav>
             <a href="dashboard-manager.html" class="active">Dashboard</a>
-            <a href="stok-list.html">Lihat Stok & Prediksi</a>
+            <a href="stok-list.html">Lihat Stok & Notifikasi</a>
+            <a href="laporan-prediksi.html">Laporan Hasil Prediksi</a>
+            <a href="daftar-belanja-pasar.html">Daftar Belanja Pasar</a>
+            <a href="pilih-pemasok.html">Pesan ke Pemasok</a>
             <a href="input-barang-masuk.html">Input Barang Masuk</a>
-            <a href="#">Daftar Belanja Pasar</a>
-            <a href="#">Kelola Pemasok</a>
             <a href="index.html">Logout</a>
         </nav>
     </div>
@@ -38,23 +39,23 @@
         </div>
 
         <div class="dashboard-grid">
-            <div class="card metric-card">
+            <div class="card metric-card" onclick="window.location.href='stok-list.html'" style="cursor: pointer;">
                 <h3>5 Item</h3>
                 <p>Stok Kurang/Habis</p>
             </div>
-            <div class="card metric-card" style="border-left-color: var(--success-color);">
+            <div class="card metric-card" style="border-left-color: var(--success-color);" onclick="window.location.href='laporan-prediksi.html'" style="cursor: pointer;">
                 <h3>100%</h3>
                 <p>Akurasi Prediksi (Minggu Lalu)</p>
             </div>
-            <div class="card metric-card" style="border-left-color: var(--primary-color);">
+            <div class="card metric-card" style="border-left-color: var(--primary-color);" onclick="window.location.href='laporan-prediksi.html'" style="cursor: pointer;">
                 <h3>Rp 16.000</h3>
                 <p>Estimasi Cost Per Porsi (Prediksi)</p>
             </div>
         </div>
         
         <div class="card">
-            <h2>Peringatan Stok Kritis [cite: 610]</h2>
-            <p>Berikut daftar bahan baku yang berada di bawah batas minimum dan butuh pengadaan segera.</p>
+            <h2>Peringatan Stok Kritis [cite: 460]</h2>
+            <p>Berikut daftar bahan baku yang berada di bawah batas minimum dan butuh pengadaan segera[cite: 65, 463].</p>
             <table>
                 <thead>
                     <tr>
@@ -79,7 +80,7 @@
                     </tr>
                 </tbody>
             </table>
-             <button class="btn btn-primary" style="margin-top: 15px;" onclick="window.location.href='stok-list.html'">Lihat Detail Stok</button>
+             <button class="btn btn-primary" style="margin-top: 15px;" onclick="window.location.href='stok-list.html'">Lihat Detail Stok & Notifikasi</button>
         </div>
     </div>
 </body>
