@@ -116,3 +116,30 @@ th {
 
 .status-kurang { background-color: #ffcccc; color: var(--accent-color); font-weight: bold; }
 .status-cukup { background-color: #ccffcc; color: var(--success-color); font-weight: bold; }
+
+/* Tambahkan style ini */
+.logo-login {
+    width: 120px; /* Atur ukuran logo */
+    height: 120px;
+    object-fit: contain; /* Memastikan logo terlihat proporsional */
+    margin-bottom: 20px;
+    border-radius: 50%; /* Jika ingin logo lingkaran dan ada latar belakang */
+    /* Karena logo Anda berbentuk lingkaran dengan background hitam, kita bisa tambahkan ini: */
+    background-color: transparent; 
+}
+
+/* Style untuk Logo di Sidebar */
+.sidebar .logo-sidebar {
+    width: 60px; /* Ukuran lebih kecil untuk sidebar */
+    height: 60px;
+    object-fit: contain;
+    margin: 0 auto 10px auto; /* Pusatkan logo di atas judul sidebar */
+    display: block;
+    border-radius: 50%;
+}
+
+/* Ubah style .sidebar h2 agar jaraknya tepat dengan logo baru */
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Diperkecil karena ada logo di atasnya */
+}
