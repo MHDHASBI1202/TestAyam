@@ -1,0 +1,118 @@
+/* styles/main.css */
+:root {
+    --primary-color: #A0522D; /* Cokelat Tanah */
+    --secondary-color: #F5F5DC; /* Krem */
+    --accent-color: #FF6347; /* Merah Tomat (untuk notifikasi) */
+    --success-color: #3CB371; /* Hijau (Sukses) */
+    --background-color: #f4f7f6;
+    --card-background: #ffffff;
+    --text-color: #333;
+    --font-family: 'Arial', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* --- Navigasi Samping (Sidebar) --- */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px 0;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background-color: #8B4513; /* Darker brown on hover/active */
+    border-left: 5px solid var(--secondary-color);
+    padding-left: 15px;
+}
+
+/* --- Main Content Area --- */
+.main-content {
+    margin-left: 250px; /* Offset the sidebar width */
+    padding: 40px;
+}
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+/* --- Card/Panel Styling --- */
+.card {
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #8B4513;
+}
+
+/* --- Table Styling --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+
+.status-kurang { background-color: #ffcccc; color: var(--accent-color); font-weight: bold; }
+.status-cukup { background-color: #ccffcc; color: var(--success-color); font-weight: bold; }
