@@ -40,11 +40,11 @@
                     <tr>
                         <th>ID</th>
                         <th>Nama Bahan</th>
-                        <th>Asal</th>
-                        <th>Nama Pemasok</th>
                         <th>Kategori</th>
                         <th>Min. Stok</th>
                         <th>Satuan</th>
+                        <th>Asal</th>
+                        <th>Info Pemasok</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -52,11 +52,16 @@
                     <tr>
                         <td>1</td>
                         <td>Ayam Potong</td>
-                        <td>Pemasok</td>
-                        <td>Supplier Ayam Sempurna</td>
                         <td>Daging</td>
                         <td>10</td>
-                        <td>Kg</td>
+                        <td>Kg</td>              
+                        <td>Pemasok</td>
+                        <td>
+                            <button class="btn btn-info" style="background-color: #40b910; color: white; padding: 5px 10px;" 
+                                onclick="bukaModalDetailPemasok('Ayam Potong')">
+                                Detail
+                            </button>
+                        </td>
                         <td>
                             <button class="btn" style="background-color: #f0ad4e; color: white; padding: 5px 10px;" 
                                 onclick="bukaModalEdit('Ayam Potong', 'kg', 'pemasok', 'Supplier Ayam Sempurna', 'daging', 10)">
@@ -70,11 +75,11 @@
                     <tr>
                         <td>2</td>
                         <td>Cabai Merah Keriting</td>
-                        <td>Pasar</td>
-                        <td>-</td>
                         <td>Sayuran</td>
                         <td>3</td>
                         <td>Kg</td>
+                        <td>Pasar</td>
+                        <td>-</td>
                         <td>
                             <button class="btn" style="background-color: #f0ad4e; color: white; padding: 5px 10px;" 
                                 onclick="bukaModalEdit('Cabai Merah Keriting', 'kg', 'pasar', '', 'sayur', 3)">
@@ -88,11 +93,11 @@
                     <tr>
                         <td>3</td>
                         <td>Bawang Merah</td>
-                        <td>Pasar</td>
-                        <td>-</td>
                         <td>Bumbu Dapur</td>
                         <td>5</td>
                         <td>Kg</td>
+                        <td>Pasar</td>
+                        <td>-</td>
                         <td>
                             <button class="btn" style="background-color: #f0ad4e; color: white; padding: 5px 10px;" 
                                 onclick="bukaModalEdit('Bawang Merah', 'kg', 'pasar', '', 'bumbu', 5)">
@@ -106,11 +111,11 @@
                     <tr>
                         <td>4</td>
                         <td>Minyak Goreng</td>
-                        <td>Pasar</td>
-                        <td>-</td>
                         <td>Cairan</td>
                         <td>15</td>
                         <td>Liter</td>
+                        <td>Pasar</td>
+                        <td>-</td>
                         <td>
                             <button class="btn" style="background-color: #f0ad4e; color: white; padding: 5px 10px;" 
                                 onclick="bukaModalEdit('Minyak Goreng', 'liter', 'pasar', '', 'cair', 15)">
@@ -154,18 +159,6 @@
                         <option value="pasar">Pasar</option>
                         <option value="pemasok">Pemasok</option>
                     </select>
-                </div>
-
-                <div id="inputWaContainer" style="display: none; background-color: #f8f9fa; padding: 15px; border-radius: 5px; border: 1px solid #eee; margin-bottom: 15px;">
-                    <div class="form-group" style="margin-bottom: 10px;">
-                        <label style="display:block; margin-bottom:5px; font-weight:bold; color: var(--primary-color);">Nama Pemasok</label>
-                        <input type="text" placeholder="Contoh: UD. Sayur Segar" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
-                    </div>
-                    <div class="form-group">
-                        <label style="display:block; margin-bottom:5px; font-weight:bold; color: var(--primary-color);">Nomor WhatsApp</label>
-                        <input type="text" placeholder="Contoh: 08123456789" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
-                        <small style="color: #666;">*Untuk kirim pesan otomatis.</small>
-                    </div>
                 </div>
 
                 <div class="form-group" style="margin-bottom: 15px;">
@@ -219,17 +212,6 @@
                     </select>
                 </div>
 
-                <div id="editWaContainer" style="display: none; background-color: #f8f9fa; padding: 15px; border-radius: 5px; border: 1px solid #eee; margin-bottom: 15px;">
-                    <div class="form-group" style="margin-bottom: 10px;">
-                        <label style="display:block; margin-bottom:5px; font-weight:bold; color: var(--primary-color);">Nama Pemasok</label>
-                        <input type="text" id="editNamaPemasok" placeholder="Nama Pemasok" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
-                    </div>
-                    <div class="form-group">
-                        <label style="display:block; margin-bottom:5px; font-weight:bold; color: var(--primary-color);">Nomor WhatsApp</label>
-                        <input type="text" id="editWa" placeholder="08xxxxx" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
-                    </div>
-                </div>
-
                 <div class="form-group" style="margin-bottom: 15px;">
                     <label style="display:block; margin-bottom:5px; font-weight:bold;">Kategori</label>
                     <select id="editKategori" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
@@ -246,6 +228,77 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width:100%;">Simpan Perubahan</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="detailPemasokModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 600px; width: 100%;">
+            <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3>Kelola Pemasok</h3>
+                    <p style="font-size: 14px; color: #666;">Bahan: <strong id="judulDetailBahan">-</strong></p>
+                </div>
+                <button class="btn btn-primary" onclick="bukaFormPemasok('tambah')">+ Tambah Pemasok</button>
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table class="table-detail">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Pemasok</th>
+                            <th>No. WhatsApp</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Supplier Ayam Sempurna</td>
+                            <td>08123456789</td>
+                            <td>
+                                <button class="btn" style="padding: 3px 8px; background-color: #f0ad4e; color: white; font-size: 12px;" onclick="bukaFormPemasok('edit')">Edit</button>
+                                <button class="btn" style="padding: 3px 8px; background-color: #d9534f; color: white; font-size: 12px;" onclick="konfirmasiHapusPemasok('Supplier Ayam Sempurna')">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>UD. Berkah Jaya</td>
+                            <td>08579876543</td>
+                            <td>
+                                <button class="btn" style="padding: 3px 8px; background-color: #f0ad4e; color: white; font-size: 12px;" onclick="bukaFormPemasok('edit')">Edit</button>
+                                <button class="btn" style="padding: 3px 8px; background-color: #d9534f; color: white; font-size: 12px;" onclick="konfirmasiHapusPemasok('UD. Berkah Jaya')">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="margin-top: 20px; text-align: right;">
+                <button class="btn" style="background-color: #ccc;" onclick="tutupModal('detailPemasokModal')">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="formPemasokModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3 id="judulFormPemasok">Tambah Pemasok Baru</h3>
+            </div>
+            <form onsubmit="simpanPemasok(); return false;">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Nama Pemasok</label>
+                    <input type="text" id="inputNamaPemasok" placeholder="Contoh: UD. Segar" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">No. WhatsApp</label>
+                    <input type="text" id="inputWaPemasok" placeholder="08xxxxx" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;" required>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                    <button type="button" class="btn" style="background-color: #ccc;" onclick="tutupModal('formPemasokModal')">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
             </form>
         </div>
     </div>
@@ -271,83 +324,72 @@
     </div>
 
     <script>
-        // Fungsi Umum Buka/Tutup Modal
-        function bukaModal(id) {
-            document.getElementById(id).style.display = 'flex';
-        }
+        function bukaModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function tutupModal(id) { document.getElementById(id).style.display = 'none'; }
 
-        function tutupModal(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-
-        // FUNGSI UTAMA: Menampilkan Notifikasi Sukses
+        // FUNGSI SUKSES UMUM
         function tampilkanSukses(jenisAksi) {
-            // 1. Tutup modal yang sedang aktif dulu
-            if (jenisAksi === 'tambah') tutupModal('tambahModal');
-            if (jenisAksi === 'edit') tutupModal('editModal');
-            if (jenisAksi === 'hapus') tutupModal('hapusModal');
+            tutupModal('tambahModal');
+            tutupModal('editModal');
+            tutupModal('hapusModal');
+            tutupModal('formPemasokModal'); 
 
-            // 2. Siapkan pesan yang sesuai
-            var pesan = "";
-            if (jenisAksi === 'tambah') {
-                pesan = "Data bahan baku baru telah berhasil disimpan.";
-            } else if (jenisAksi === 'edit') {
-                pesan = "Perubahan data berhasil diperbarui.";
-            } else if (jenisAksi === 'hapus') {
-                pesan = "Data bahan baku telah dihapus dari sistem.";
-            }
-
-            // 3. Masukkan pesan ke modal sukses & tampilkan
+            var pesan = "Data berhasil disimpan.";
+            if (jenisAksi === 'hapus') pesan = "Data berhasil dihapus.";
+            
             document.getElementById('pesanSukses').innerText = pesan;
             bukaModal('suksesModal');
         }
 
-        // --- Logika Hapus ---
-        function konfirmasiHapus(namaBahan) {
-            document.getElementById('namaBahanHapus').innerText = namaBahan;
-            bukaModal('hapusModal');
-        }
-
-        // --- Logika Tambah Data ---
-        function cekAsalBarang() {
-            var asal = document.getElementById('pilihAsal').value;
-            var containerWa = document.getElementById('inputWaContainer');
-            
-            if (asal === 'pemasok') {
-                containerWa.style.display = 'block';
-            } else {
-                containerWa.style.display = 'none';
-            }
-        }
-
-        // --- Logika Edit Data ---
-        function bukaModalEdit(nama, satuan, asal, namaPemasok, kategori, minStok) {
+        // LOGIKA MASTER DATA
+        function bukaModalEdit(nama, satuan, asal, kategori, minStok) {
             document.getElementById('editNama').value = nama;
             document.getElementById('editSatuan').value = satuan.toLowerCase(); 
             document.getElementById('editAsal').value = asal.toLowerCase();
             document.getElementById('editKategori').value = kategori.toLowerCase();
             document.getElementById('editMin').value = minStok;
-            document.getElementById('editNamaPemasok').value = namaPemasok;
-            
-            cekAsalBarangEdit(); 
             document.getElementById('editModal').style.display = 'flex';
         }
 
-        function cekAsalBarangEdit() {
-            var asal = document.getElementById('editAsal').value;
-            var containerWa = document.getElementById('editWaContainer');
-            
-            if (asal === 'pemasok') {
-                containerWa.style.display = 'block';
-                if(!document.getElementById('editWa').value) {
-                     document.getElementById('editWa').value = "08123456789"; 
-                }
-            } else {
-                containerWa.style.display = 'none';
-            }
+        function konfirmasiHapus(namaBahan) {
+            document.getElementById('namaBahanHapus').innerText = namaBahan;
+            bukaModal('hapusModal');
         }
 
-        // Menutup modal jika klik di luar kotak (backdrop)
+        // LOGIKA DETAIL PEMASOK
+        function bukaModalDetailPemasok(namaBahan) {
+            document.getElementById('judulDetailBahan').innerText = namaBahan;
+            bukaModal('detailPemasokModal');
+        }
+
+        // LOGIKA FORM PEMASOK
+        function bukaFormPemasok(mode) {
+            var judul = document.getElementById('judulFormPemasok');
+            var inputNama = document.getElementById('inputNamaPemasok');
+            var inputWa = document.getElementById('inputWaPemasok');
+
+            if(mode === 'tambah') {
+                judul.innerText = "Tambah Pemasok Baru";
+                inputNama.value = "";
+                inputWa.value = "";
+            } else {
+                judul.innerText = "Edit Data Pemasok";
+                inputNama.value = "Supplier Ayam Sempurna"; 
+                inputWa.value = "08123456789";
+            }
+            bukaModal('formPemasokModal');
+        }
+
+        function simpanPemasok() {
+            tampilkanSukses('simpanPemasok');
+        }
+
+        function konfirmasiHapusPemasok(namaPemasok) {
+            document.getElementById('namaBahanHapus').innerText = "Pemasok: " + namaPemasok;
+            bukaModal('hapusModal');
+        }
+
+        // Tutup modal jika klik background
         window.onclick = function(event) {
             if (event.target.classList.contains('modal-overlay')) {
                 event.target.style.display = "none";
