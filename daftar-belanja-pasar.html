@@ -17,6 +17,9 @@
             <a href="daftar-belanja-pasar.html" class="active">Daftar Belanja Pasar</a>
             <a href="pilih-pemasok.html">Pesan ke Pemasok</a>
             <a href="input-barang-masuk.html">Input Barang Masuk</a>
+            <a href="log-notifikasi.html" >Log Notifikasi</a>
+            <a href="laporan-audit.html">Laporan Audit</a>
+            <a href="data-master.html">Data Master</a>
             <a href="index.html">Logout</a>
         </nav>
     </div>
@@ -35,25 +38,36 @@
                     <tr>
                         <th>No.</th>
                         <th>Bahan Baku</th>
-                        <th>Jumlah Dibutuhkan</th>
+                        <th>Stok Saat Ini</th>
+                        <th style= "max-width: 100px;">Status Ketersediaan (Batas Minimum)</th>
+                        <th style= "max-width: 120px;">Jumlah Saran Beli (Untuk 7 Hari)</th>
                         <th>Satuan</th>
-                        <th>Keterangan</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1.</td>
                         <td>Cabai Merah Keriting</td>
-                        <td>13</td>
+                        <td>1</td>
+                        <td style="color: red; font-weight: bold;">Kurang (3)</td>
+                        <td style="color: red; font-weight: bold;">13</td>
                         <td>Kg</td>
-                        <td>Diambil dari Saran Prediksi</td>
                     </tr>
                     <tr>
                         <td>2.</td>
-                        <td>Bawang Putih</td>
-                        <td>5</td>
+                        <td>Bawang Merah</td>
+                        <td>15</td>
+                        <td style="color: green;">Cukup</td>
+                        <td style="color: red; font-weight: bold;">6</td>
                         <td>Kg</td>
-                        <td>Stok di bawah batas minimum (7 Kg)</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>Minyak Goreng</td>
+                        <td>30</td>
+                        <td style="color: green;">Cukup</td>
+                        <td style="color: green;">0</td>
+                        <td>Liter</td>
                     </tr>
                 </tbody>
             </table>

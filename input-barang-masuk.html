@@ -22,6 +22,9 @@
             <a href="daftar-belanja-pasar.html">Daftar Belanja Pasar</a>
             <a href="pilih-pemasok.html">Pesan ke Pemasok</a>
             <a href="input-barang-masuk.html" class="active">Input Barang Masuk</a>
+            <a href="log-notifikasi.html">Log Notifikasi</a>
+            <a href="laporan-audit.html">Laporan Audit</a>
+            <a href="data-master.html">Data Master</a>
             <a href="index.html">Logout</a>
         </nav>
     </div>
@@ -82,5 +85,28 @@
             </form>
         </div>
     </div>
+    <div id="saveModal" class="modal-overlay">
+    <div class="modal-content" style="text-align: center;">
+        <h2 style="color: var(--success-color); margin-bottom: 10px;">✔ Data Tersimpan!</h2>
+        <p>Stok bahan baku telah berhasil diperbarui di sistem.</p>
+        <br>
+        <button class="btn btn-primary" onclick="window.location.href='stok-list.html'">Lihat Stok</button>
+        <button class="btn" style="border: 1px solid #ddd; margin-left: 10px;" onclick="tutupModal('saveModal')">Input Lagi</button>
+    </div>
+    </div>
+
+    <script>
+        // Override form submit agar tidak reload halaman langsung
+        document.getElementById('inputMasukForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah form submit biasa
+            document.getElementById('saveModal').style.display = 'flex';
+        });
+
+        function tutupModal(id) {
+            document.getElementById(id).style.display = 'none';
+            // Reset form jika mau input lagi
+            document.getElementById('inputMasukForm').reset();
+        }
+    </script>
 </body>
 </html>
