@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Pemakaian Bahan</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+         .form-group { margin-bottom: 20px; }
+         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+         .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="Gemini_Generated_Image_sxi7y0sxi7y0sxi7.png" alt="Logo Ayam Djuragan" class="logo-sidebar">
+        <h2>Ayam Djuragan</h2>
+        <nav>
+            <a href="input-bahan-digunakan.html" class="active">Input Pemakaian Bahan</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Input Bahan Baku Yang Digunakan</h1>
+            <p>Anda Login sebagai Staff Dapur (Ardra Pramana)</p>
+        </div>
+
+        <div class="card">
+            <h2>Form Penggunaan Bahan Baku Harian</h2>
+            <form id="inputPemakaianForm" onsubmit="alert('Data pemakaian bahan berhasil disimpan dan stok dikurangi.'); return false;">
+                <p>Catat pemakaian bahan baku setelah selesai produksi harian. (Mencegah input stok negatif/tidak cukup)</p>
+                <div class="form-group">
+                    <label for="tanggal">Tanggal Pemakaian:</label>
+                    <input type="date" id="tanggal" value="2025-12-16" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bahan">Bahan Baku:</label>
+                    <select id="bahan" required>
+                        <option value="">-- Pilih Bahan Baku Utama --</option>
+                        <option value="ayam">Ayam Potong</option>
+                        <option value="cabai">Cabai Merah Keriting</option>
+                        <option value="bawang">Bawang Merah</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="display: flex; gap: 20px;">
+                    <div style="flex: 3;">
+                        <label for="jumlah">Jumlah Digunakan:</label>
+                        <input type="number" id="jumlah" min="0.1" placeholder="Misal: 30" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="satuan">Satuan:</label>
+                         <input type="text" id="satuan" value="Kg" readonly>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Simpan Data Pemakaian</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

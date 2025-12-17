@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Stok Bahan Baku</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="sidebar">
+        <img src="Gemini_Generated_Image_sxi7y0sxi7y0sxi7.png" alt="Logo Ayam Djuragan" class="logo-sidebar">
+        <h2>Ayam Djuragan</h2>
+        <nav>
+            <a href="dashboard-manager.html">Dashboard</a>
+            <a href="stok-list.html" class="active">Lihat Stok & Notifikasi</a>
+            <a href="laporan-prediksi.html">Laporan Hasil Prediksi</a>
+            <a href="daftar-belanja-pasar.html">Daftar Belanja Pasar</a>
+            <a href="pilih-pemasok.html">Pesan ke Pemasok</a>
+            <a href="input-barang-masuk.html">Input Barang Masuk</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Stok Bahan Baku Real-time (Melihat Stok)</h1>
+            <button class="btn btn-primary" onclick="window.location.href='laporan-prediksi.html'">Lihat Laporan Prediksi</button>
+        </div>
+
+        <div class="card">
+             <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <input type="text" placeholder="Cari Bahan Baku..." style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; flex-grow: 1;">
+                <select style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    <option>Filter Status: Semua</option>
+                    <option>Filter Status: Kurang/Habis</option>
+                    <option>Filter Status: Cukup</option>
+                </select>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bahan Baku</th>
+                        <th>Satuan</th>
+                        <th>Stok Saat Ini</th>
+                        <th>Batas Minimum</th>
+                        <th>Status Ketersediaan</th>
+                        <th>Aksi Pengadaan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ayam Potong (Beku)</td>
+                        <td>Kg</td>
+                        <td>5</td>
+                        <td>10</td>
+                        <td class="status-kurang">Kurang</td>
+                        <td><button class="btn btn-primary" onclick="window.location.href='pilih-pemasok.html'">Pesan ke Pemasok</button></td>
+                    </tr>
+                    <tr>
+                        <td>Cabai Merah Keriting</td>
+                        <td>Kg</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td class="status-kurang">Kurang</td>
+                        <td><button class="btn btn-primary" onclick="window.location.href='daftar-belanja-pasar.html'">Belanja ke Pasar</button></td>
+                    </tr>
+                    <tr>
+                        <td>Bawang Merah</td>
+                        <td>Kg</td>
+                        <td>15</td>
+                        <td>5</td>
+                        <td class="status-cukup">Cukup</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Minyak Goreng</td>
+                        <td>Liter</td>
+                        <td>30</td>
+                        <td>15</td>
+                        <td class="status-cukup">Cukup</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card" style="margin-top: 40px;">
+            <h2>Ringkasan Prediksi Kebutuhan</h2>
+            <p>Lihat detail prediksi untuk membandingkan stok dengan kebutuhan mendatang.</p>
+            <button class="btn btn-primary" style="margin-top: 15px;" onclick="window.location.href='laporan-prediksi.html'">Lihat Rincian Prediksi</button>
+        </div>
+    </div>
+</body>
+</html>

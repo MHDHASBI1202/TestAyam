@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Barang Masuk</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+         .form-group { margin-bottom: 20px; }
+         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+         .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="Gemini_Generated_Image_sxi7y0sxi7y0sxi7.png" alt="Logo Ayam Djuragan" class="logo-sidebar">
+        <h2>Ayam Djuragan</h2>
+        <nav>
+            <a href="dashboard-manager.html">Dashboard</a>
+            <a href="stok-list.html">Lihat Stok & Notifikasi</a>
+            <a href="laporan-prediksi.html">Laporan Hasil Prediksi</a>
+            <a href="daftar-belanja-pasar.html">Daftar Belanja Pasar</a>
+            <a href="pilih-pemasok.html">Pesan ke Pemasok</a>
+            <a href="input-barang-masuk.html" class="active">Input Barang Masuk</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Input Penerimaan Barang Baru </h1>
+        </div>
+
+        <div class="card">
+            <form id="inputMasukForm">
+                <div class="form-group">
+                    <label for="tanggal">Tanggal Penerimaan:</label>
+                    <input type="date" id="tanggal" value="2025-12-16" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bahan">Bahan Baku:</label>
+                    <select id="bahan" required>
+                        <option value="">-- Pilih Bahan Baku --</option>
+                        <option value="ayam">Ayam Potong</option>
+                        <option value="cabai">Cabai Merah Keriting</option>
+                        <option value="bawang">Bawang Merah</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="display: flex; gap: 20px;">
+                    <div style="flex: 3;">
+                        <label for="jumlah">Jumlah Masuk:</label>
+                        <input type="number" id="jumlah" min="1" placeholder="Masukkan jumlah" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="satuan">Satuan:</label>
+                         <input type="text" id="satuan" value="Kg" readonly>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <label for="pemasok">Asal Barang:</label>
+                    <select id="pemasok" required>
+                        <option value="">-- Pilih Asal Barang --</option>
+                        <option value="supplier-a">Supplier Ayam Sempurna</option>
+                        <option value="pasar">Pembelian Pasar</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Pencatatan Pemeriksaan Kualitas:</label>
+                    <div>
+                        <input type="radio" id="baik" name="kualitas" value="Baik" checked>
+                        <label for="baik">Baik (Sesuai SOP)</label>
+                        <input type="radio" id="kurang" name="kualitas" value="Kurang Baik">
+                        <label for="kurang">Kurang Baik</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Simpan Data Masuk & Update Stok </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
