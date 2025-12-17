@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Belanja Pasar</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="sidebar">
+        <img src="Gemini_Generated_Image_sxi7y0sxi7y0sxi7.png" alt="Logo Ayam Djuragan" class="logo-sidebar">
+        <h2>Ayam Djuragan</h2>
+        <nav>
+            <a href="dashboard-manager.html">Dashboard</a>
+            <a href="stok-list.html">Lihat Stok & Notifikasi</a>
+            <a href="laporan-prediksi.html">Laporan Hasil Prediksi</a>
+            <a href="daftar-belanja-pasar.html" class="active">Daftar Belanja Pasar</a>
+            <a href="pilih-pemasok.html">Pesan ke Pemasok</a>
+            <a href="input-barang-masuk.html">Input Barang Masuk</a>
+            <a href="log-notifikasi.html" >Log Notifikasi</a>
+            <a href="laporan-audit.html">Laporan Audit</a>
+            <a href="data-master.html">Data Master</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Daftar Belanja Ke Pasar (Otomatis)</h1>
+            <button class="btn btn-primary" onclick="window.print()">Print Daftar Belanja</button>
+        </div>
+
+        <div class="card">
+            <h2>Rekomendasi Pembelian Pasar</h2>
+            <p style="margin-bottom: 15px;">Daftar ini dihasilkan berdasarkan perbandingan stok aktual dengan batas minimum/prediksi.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Bahan Baku</th>
+                        <th>Stok Saat Ini</th>
+                        <th style= "max-width: 100px;">Status Ketersediaan (Batas Minimum)</th>
+                        <th style= "max-width: 120px;">Jumlah Saran Beli (Untuk 7 Hari)</th>
+                        <th>Satuan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td>Cabai Merah Keriting</td>
+                        <td>1</td>
+                        <td style="color: red; font-weight: bold;">Kurang (3)</td>
+                        <td style="color: red; font-weight: bold;">13</td>
+                        <td>Kg</td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>Bawang Merah</td>
+                        <td>15</td>
+                        <td style="color: green;">Cukup</td>
+                        <td style="color: red; font-weight: bold;">6</td>
+                        <td>Kg</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>Minyak Goreng</td>
+                        <td>30</td>
+                        <td style="color: green;">Cukup</td>
+                        <td style="color: green;">0</td>
+                        <td>Liter</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 20px;">*Pastikan harga dan kualitas bahan sesuai saat pembelian.</p>
+        </div>
+    </div>
+</body>
+</html>

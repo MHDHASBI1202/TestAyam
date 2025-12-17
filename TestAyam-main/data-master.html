@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Master</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="sidebar">
+        <img src="Gemini_Generated_Image_sxi7y0sxi7y0sxi7.png" alt="Logo Ayam Djuragan" class="logo-sidebar">
+        <h2>Ayam Djuragan</h2>
+        <nav>
+            <a href="dashboard-manager.html">Dashboard</a>
+            <a href="stok-list.html">Lihat Stok & Notifikasi</a>
+            <a href="laporan-prediksi.html">Laporan Hasil Prediksi</a>
+            <a href="daftar-belanja-pasar.html">Daftar Belanja Pasar</a>
+            <a href="pilih-pemasok.html">Pesan ke Pemasok</a>
+            <a href="input-barang-masuk.html">Input Barang Masuk</a>
+            <a href="log-notifikasi.html">Log Notifikasi</a>
+            <a href="laporan-audit.html">Laporan Audit</a>
+            <a href="data-master.html" class="active">Data Master</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Manajemen Data Master</h1>
+        </div>
+
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h2>Daftar Bahan Baku</h2>
+                <button class="btn btn-primary" onclick="bukaModal('tambahModal')">+ Tambah Bahan Baku Baru</button>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama Bahan</th>
+                        <th>Asal</th>
+                        <th>Nama Pemasok</th>
+                        <th>Kategori</th>
+                        <th>Min. Stok</th>
+                        <th>Satuan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Ayam Potong</td>
+                        <td>Pemasok</td>
+                        <td>Supplier Ayam Sempurna</td>
+                        <td>Daging</td>
+                        <td>10</td>
+                        <td>Kg</td>
+                        <td>
+                            <button class="btn" style="background-color: #f0ad4e; color: white; padding: 5px 10px;" 
+                                onclick="bukaModalEdit('Ayam Potong', 'kg', 'pemasok', 'Supplier Ayam Sempurna', 'daging', 10)">
+                                Edit
+                            </button> 
+                            <button class="btn" style="background-color: #d9534f; color: white; padding: 5px 10px;" onclick="konfirmasiHapus('Ayam Potong')">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>Cabai Merah Keriting</td>
+                        <td>Pasar</td>
+                        <td>-</td>
+                        <td>Sayuran</td>
+                        <td>3</td>
+                        <td>Kg</td>
+                        <td>
+                            <button class="btn" style="background-color: #f0ad4e; color: white; padding: 5px 10px;" 
+                                onclick="bukaModalEdit('Cabai Merah Keriting', 'kg', 'pasar', '', 'sayur', 3)">
+                                Edit
+                            </button> 
+                            <button class="btn" style="background-color: #d9534f; color: white; padding: 5px 10px;" onclick="konfirmasiHapus('Ayam Potong')">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>3</td>
+                        <td>Bawang Merah</td>
+                        <td>Pasar</td>
+                        <td>-</td>
+                        <td>Bumbu Dapur</td>
+                        <td>5</td>
+                        <td>Kg</td>
+                        <td>
+                            <button class="btn" style="background-color: #f0ad4e; color: white; padding: 5px 10px;" 
+                                onclick="bukaModalEdit('Bawang Merah', 'kg', 'pasar', '', 'bumbu', 5)">
+                                Edit
+                            </button> 
+                            <button class="btn" style="background-color: #d9534f; color: white; padding: 5px 10px;" onclick="konfirmasiHapus('Ayam Potong')">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>4</td>
+                        <td>Minyak Goreng</td>
+                        <td>Pasar</td>
+                        <td>-</td>
+                        <td>Cairan</td>
+                        <td>15</td>
+                        <td>Liter</td>
+                        <td>
+                            <button class="btn" style="background-color: #f0ad4e; color: white; padding: 5px 10px;" 
+                                onclick="bukaModalEdit('Minyak Goreng', 'liter', 'pasar', '', 'cair', 15)">
+                                Edit
+                            </button> 
+                            <button class="btn" style="background-color: #d9534f; color: white; padding: 5px 10px;" onclick="konfirmasiHapus('Ayam Potong')">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="tambahModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="tutupModal('tambahModal')">&times;</span>
+            <div class="modal-header">
+                <h3>Tambah Bahan Baku Baru</h3>
+            </div>
+            <form onsubmit="tampilkanSukses('tambah'); return false;">
+                
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Nama Bahan Baku</label>
+                    <input type="text" placeholder="Contoh: Bawang Putih" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;" required>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Satuan</label>
+                    <select style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;" required>
+                        <option value="">-- Pilih Satuan --</option>
+                        <option value="kg">Kilogram (Kg)</option>
+                        <option value="liter">Liter</option>
+                        <option value="pcs">Pcs/Bungkus</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Asal Barang</label>
+                    <select id="pilihAsal" onchange="cekAsalBarang()" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;" required>
+                        <option value="">-- Pilih Asal --</option>
+                        <option value="pasar">Pasar</option>
+                        <option value="pemasok">Pemasok</option>
+                    </select>
+                </div>
+
+                <div id="inputWaContainer" style="display: none; background-color: #f8f9fa; padding: 15px; border-radius: 5px; border: 1px solid #eee; margin-bottom: 15px;">
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label style="display:block; margin-bottom:5px; font-weight:bold; color: var(--primary-color);">Nama Pemasok</label>
+                        <input type="text" placeholder="Contoh: UD. Sayur Segar" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
+                    </div>
+                    <div class="form-group">
+                        <label style="display:block; margin-bottom:5px; font-weight:bold; color: var(--primary-color);">Nomor WhatsApp</label>
+                        <input type="text" placeholder="Contoh: 08123456789" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
+                        <small style="color: #666;">*Untuk kirim pesan otomatis.</small>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Kategori</label>
+                    <select style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
+                        <option value="daging">Daging</option>
+                        <option value="bumbu">Bumbu Dapur</option>
+                        <option value="sayur">Sayuran</option>
+                        <option value="cair">Cairan</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Batas Minimum Stok</label>
+                    <input type="number" placeholder="Contoh: 5" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width:100%;">Simpan Data</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="tutupModal('editModal')">&times;</span>
+            <div class="modal-header">
+                <h3>Edit Data Bahan Baku</h3>
+            </div>
+            <form onsubmit="tampilkanSukses('edit'); return false;">
+                
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Nama Bahan Baku</label>
+                    <input type="text" id="editNama" style="width:100%; padding:10px; border:1px solid #ddd; background-color: #f9f9f9; border-radius:4px;" readonly>
+                    <small style="color: #888;">*Nama bahan tidak dapat diubah</small>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Satuan</label>
+                    <select id="editSatuan" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;" required>
+                        <option value="kg">Kilogram (Kg)</option>
+                        <option value="liter">Liter</option>
+                        <option value="pcs">Pcs/Bungkus</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Asal Barang</label>
+                    <select id="editAsal" onchange="cekAsalBarangEdit()" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;" required>
+                        <option value="pasar">Pasar</option>
+                        <option value="pemasok">Pemasok</option>
+                    </select>
+                </div>
+
+                <div id="editWaContainer" style="display: none; background-color: #f8f9fa; padding: 15px; border-radius: 5px; border: 1px solid #eee; margin-bottom: 15px;">
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <label style="display:block; margin-bottom:5px; font-weight:bold; color: var(--primary-color);">Nama Pemasok</label>
+                        <input type="text" id="editNamaPemasok" placeholder="Nama Pemasok" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
+                    </div>
+                    <div class="form-group">
+                        <label style="display:block; margin-bottom:5px; font-weight:bold; color: var(--primary-color);">Nomor WhatsApp</label>
+                        <input type="text" id="editWa" placeholder="08xxxxx" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Kategori</label>
+                    <select id="editKategori" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
+                        <option value="daging">Daging</option>
+                        <option value="bumbu">Bumbu Dapur</option>
+                        <option value="sayur">Sayuran</option>
+                        <option value="minyak">Cairan</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Batas Minimum Stok</label>
+                    <input type="number" id="editMin" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width:100%;">Simpan Perubahan</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="hapusModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <h3 style="color: #d9534f; margin-bottom: 15px;">Hapus Data?</h3>
+            <p>Anda yakin ingin menghapus <strong id="namaBahanHapus">...</strong>? Data yang dihapus tidak bisa dikembalikan.</p>
+            <div style="margin-top: 25px; display: flex; justify-content: center; gap: 10px;">
+                <button class="btn" style="background-color: #ccc;" onclick="tutupModal('hapusModal')">Batal</button>
+                <button class="btn" style="background-color: #d9534f; color: white;" onclick="tampilkanSukses('hapus')">Ya, Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="suksesModal" class="modal-overlay">
+        <div class="modal-content" style="text-align: center; max-width: 400px;">
+            <h2 style="color: var(--success-color); margin-bottom: 10px;">✔ Berhasil!</h2>
+            <p id="pesanSukses">Aksi berhasil dilakukan.</p>
+            <br>
+            <button class="btn btn-primary" onclick="tutupModal('suksesModal')">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi Umum Buka/Tutup Modal
+        function bukaModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+
+        function tutupModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        // FUNGSI UTAMA: Menampilkan Notifikasi Sukses
+        function tampilkanSukses(jenisAksi) {
+            // 1. Tutup modal yang sedang aktif dulu
+            if (jenisAksi === 'tambah') tutupModal('tambahModal');
+            if (jenisAksi === 'edit') tutupModal('editModal');
+            if (jenisAksi === 'hapus') tutupModal('hapusModal');
+
+            // 2. Siapkan pesan yang sesuai
+            var pesan = "";
+            if (jenisAksi === 'tambah') {
+                pesan = "Data bahan baku baru telah berhasil disimpan.";
+            } else if (jenisAksi === 'edit') {
+                pesan = "Perubahan data berhasil diperbarui.";
+            } else if (jenisAksi === 'hapus') {
+                pesan = "Data bahan baku telah dihapus dari sistem.";
+            }
+
+            // 3. Masukkan pesan ke modal sukses & tampilkan
+            document.getElementById('pesanSukses').innerText = pesan;
+            bukaModal('suksesModal');
+        }
+
+        // --- Logika Hapus ---
+        function konfirmasiHapus(namaBahan) {
+            document.getElementById('namaBahanHapus').innerText = namaBahan;
+            bukaModal('hapusModal');
+        }
+
+        // --- Logika Tambah Data ---
+        function cekAsalBarang() {
+            var asal = document.getElementById('pilihAsal').value;
+            var containerWa = document.getElementById('inputWaContainer');
+            
+            if (asal === 'pemasok') {
+                containerWa.style.display = 'block';
+            } else {
+                containerWa.style.display = 'none';
+            }
+        }
+
+        // --- Logika Edit Data ---
+        function bukaModalEdit(nama, satuan, asal, namaPemasok, kategori, minStok) {
+            document.getElementById('editNama').value = nama;
+            document.getElementById('editSatuan').value = satuan.toLowerCase(); 
+            document.getElementById('editAsal').value = asal.toLowerCase();
+            document.getElementById('editKategori').value = kategori.toLowerCase();
+            document.getElementById('editMin').value = minStok;
+            document.getElementById('editNamaPemasok').value = namaPemasok;
+            
+            cekAsalBarangEdit(); 
+            document.getElementById('editModal').style.display = 'flex';
+        }
+
+        function cekAsalBarangEdit() {
+            var asal = document.getElementById('editAsal').value;
+            var containerWa = document.getElementById('editWaContainer');
+            
+            if (asal === 'pemasok') {
+                containerWa.style.display = 'block';
+                if(!document.getElementById('editWa').value) {
+                     document.getElementById('editWa').value = "08123456789"; 
+                }
+            } else {
+                containerWa.style.display = 'none';
+            }
+        }
+
+        // Menutup modal jika klik di luar kotak (backdrop)
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+    
+</body>

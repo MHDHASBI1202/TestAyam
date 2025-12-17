@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Pemakaian Bahan</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+         .form-group { margin-bottom: 20px; }
+         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+         .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="Gemini_Generated_Image_sxi7y0sxi7y0sxi7.png" alt="Logo Ayam Djuragan" class="logo-sidebar">
+        <h2>Ayam Djuragan</h2>
+        <nav>
+            <a href="input-bahan-digunakan.html" class="active">Input Pemakaian Bahan</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header-bar">
+            <h1>Input Bahan Baku Yang Digunakan</h1>
+            <p>Anda Login sebagai Staff Dapur (Ardra Pramana)</p>
+        </div>
+
+        <div class="card">
+            <h2>Form Penggunaan Bahan Baku Harian</h2>
+            <form id="inputPemakaianForm" onsubmit="tampilkanKonfirmasi(event)">
+                <p>Catat pemakaian bahan baku setelah selesai produksi harian. (Mencegah input stok negatif/tidak cukup)</p>
+                <div class="form-group">
+                    <label for="tanggal">Tanggal Pemakaian:</label>
+                    <input type="date" id="tanggal" value="2025-12-16" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bahan">Bahan Baku:</label>
+                    <select id="bahan" required>
+                        <option value="">-- Pilih Bahan Baku Utama --</option>
+                        <option value="ayam">Ayam Potong</option>
+                        <option value="cabai">Cabai Merah Keriting</option>
+                        <option value="bawang">Bawang Merah</option>
+                        <option value="minyak">Minyak Goreng</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="display: flex; gap: 20px;">
+                    <div style="flex: 3;">
+                        <label for="jumlah">Jumlah Digunakan:</label>
+                        <input type="number" id="jumlah" min="0" placeholder="Misal: 30" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="satuan">Satuan:</label>
+                         <input type="text" id="satuan" value="Kg" readonly>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Simpan Data Pemakaian</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="konfirmasiModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <h3 style="color: var(--primary-color); margin-bottom: 15px;">Simpan Data?</h3>
+            <p>Pastikan data yang diinput sudah benar. Stok akan otomatis dikurangi setelah disimpan.</p>
+            <div style="margin-top: 25px; display: flex; justify-content: center; gap: 10px;">
+                <button class="btn" style="background-color: #ccc;" onclick="tutupModal('konfirmasiModal')">Cek Lagi</button>
+                <button class="btn btn-primary" onclick="prosesSimpan()">Ya, Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="suksesModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <h2 style="color: var(--success-color); margin-bottom: 10px;">✔ Berhasil!</h2>
+            <p>Data pemakaian bahan berhasil disimpan dan stok telah diperbarui.</p>
+            <div style="margin-top: 25px;">
+                <button class="btn btn-primary" style="min-width: 100px;" onclick="selesaiSimpan()">Oke</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi dasar modal
+        function bukaModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+
+        function tutupModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        // 1. Dipanggil saat tombol Submit ditekan
+        function tampilkanKonfirmasi(event) {
+            event.preventDefault(); // Mencegah form reload halaman langsung
+            
+            // Validasi sederhana (opsional, karena 'required' di HTML sudah handle)
+            var bahan = document.getElementById('bahan').value;
+            var jumlah = document.getElementById('jumlah').value;
+            
+            if(bahan && jumlah) {
+                bukaModal('konfirmasiModal');
+            }
+        }
+
+        // 2. Dipanggil saat user klik "Ya, Simpan" di modal konfirmasi
+        function prosesSimpan() {
+            tutupModal('konfirmasiModal'); // Tutup konfirmasi
+            
+            // Di sini nanti logika kirim ke database
+            // ...
+            
+            // Tampilkan sukses
+            bukaModal('suksesModal');
+        }
+
+        // 3. Dipanggil saat user klik "Oke" di modal sukses
+        function selesaiSimpan() {
+            tutupModal('suksesModal');
+            document.getElementById('inputPemakaianForm').reset(); // Kosongkan form agar bersih
+        }
+
+        // Tutup modal jika klik background gelap
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
